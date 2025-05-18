@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST Digit Recognizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MNIST Digit Recognizer CNN Visualization</h1>
+            <p>Upload an image of a handwritten digit to see how the CNN model processes it</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-box" id="dropArea">
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <div class="upload-content">
+                    <img src="upload-icon.svg" alt="Upload" id="uploadIcon">
+                    <p>Drag & drop an image here or</p>
+                    <button id="browseBtn">Browse Files</button>
+                </div>
+            </div>
+            <div class="preview-container" id="previewContainer" style="display: none;">
+                <div class="preview-header">
+                    <h3>Selected Image</h3>
+                    <button id="clearBtn">Clear</button>
+                </div>
+                <img id="previewImage" alt="Preview">
+                <button id="analyzeBtn">Analyze Image</button>
+            </div>
+        </div>
+
+        <div class="results-container" id="resultsContainer" style="display: none;">
+            <div class="result-header">
+                <h2>Analysis Results</h2>
+            </div>
+            
+            <div class="prediction-section">
+                <h3>Prediction</h3>
+                <div class="prediction-result">
+                    <div class="prediction-digit" id="predictedDigit">?</div>
+                    <div class="prediction-confidence">
+                        <span>Confidence: </span>
+                        <span id="confidenceValue">0%</span>
+                    </div>
+                </div>
+                <div class="probabilities-container">
+                    <h4>Probabilities</h4>
+                    <div class="probability-bars" id="probabilityBars"></div>
+                </div>
+            </div>
+
+            <div class="visualization-section">
+                <h3>CNN Layer Visualizations</h3>
+                
+                <div class="layer-container">
+                    <h4>Input Image (28x28)</h4>
+                    <div class="feature-maps" id="inputImage">
+                        <!-- Input image will be displayed here -->
+                    </div>
+                </div>
+                
+                <div class="layer-container">
+                    <h4>First Convolutional Layer (16 channels)</h4>
+                    <div class="feature-maps" id="conv1Output">
+                        <!-- Conv1 feature maps will be displayed here -->
+                    </div>
+                </div>
+                
+                <div class="layer-container">
+                    <h4>After First Max Pooling (16 channels)</h4>
+                    <div class="feature-maps" id="pool1Output">
+                        <!-- Pool1 feature maps will be displayed here -->
+                    </div>
+                </div>
+                
+                <div class="layer-container">
+                    <h4>Second Convolutional Layer (32 channels)</h4>
+                    <div class="feature-maps" id="conv2Output">
+                        <!-- Conv2 feature maps will be displayed here -->
+                    </div>
+                </div>
+                
+                <div class="layer-container">
+                    <h4>After Second Max Pooling (32 channels)</h4>
+                    <div class="feature-maps" id="pool2Output">
+                        <!-- Pool2 feature maps will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="spinner"></div>
+            <p>Processing image...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>MNIST Digit Recognizer CNN Visualization Tool</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
