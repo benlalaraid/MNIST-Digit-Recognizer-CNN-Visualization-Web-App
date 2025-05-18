@@ -73,3 +73,6 @@ The CNN model has the following architecture:
 9. Fully Connected Layer: 128 neurons
 10. ReLU Activation
 11. Output Layer: 10 neurons (one for each digit 0-9)
+
+![image](https://github.com/user-attachments/assets/7e20519b-645d-4fdb-ae0a-8d09b96f97a5)
+
